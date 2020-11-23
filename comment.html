@@ -46,6 +46,12 @@
         const queryString = decodeURIComponent(window.location.search);
         const params = new URLSearchParams(queryString);
         if(liff.getContext().type !== "none" && liff.getContext().type !== "external"){
+            if(params.get("action") === "ไม่อนุมัติ"){
+                if(document.getElementById("comment") === "" || document.getElementById("comment") === null){
+                    alert("โปรดระบุข้อคิดเห็นเพิ่มเติม");
+                    return false;
+                }
+            }
             await liff.sendMessages([
                 {
                     "type": "text",
