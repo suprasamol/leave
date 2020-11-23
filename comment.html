@@ -28,7 +28,10 @@
         <td colspan="2"><p id="TotalLeave"><b>รวมวันลาทั้งหมด:</b> </p></td>
     </tr>
     <tr>
-        <td><p id="Reason"><b>เหตุผลการลา:</b> </p></td>
+        <td colspan="2"><p id="Reason"><b>เหตุผลการลา:</b> </p></td>
+    </tr>
+    <tr>
+        <td><p><b>ข้อคิดเห็นเพิ่มเติม:</b></p></td>
 		<td><input id="comment"></td>
     </tr>
    
@@ -47,6 +50,7 @@ async function main() {
     document.getElementById("LeaveType").append(params.get("LeaveType"));
     document.getElementById("DateLeave").append(params.get("DateLeave"));
     document.getElementById("TotalLeave").append(params.get("TotalLeave"));
+    document.getElementById("Reason").append(params.get("Reason"));
   
     }
     main()
