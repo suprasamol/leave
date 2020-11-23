@@ -43,6 +43,8 @@
 <script>
 
     async function sendMsg() {
+        const queryString = decodeURIComponent(window.location.search);
+        const params = new URLSearchParams(queryString);
         if(liff.getContext().type !== "none" && liff.getContext().type !== "external"){
             await liff.sendMessages([
                 {
