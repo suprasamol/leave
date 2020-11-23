@@ -31,6 +31,7 @@
   <p id="universalLink1"><b>Universal Link:</b> </p>
   <p id="universalLink2"><b>Universal Link with Query params:</b> </p>
   <p><a href="liff/path/?param=9">Link to Path</a></p>
+  <p><b>Comment:</b><input id="comment" /></p>
 
   <button id="btnMsg" onclick="sendMsg()">Send Message</button>
   <button id="btnShare" onclick="shareMsg()">Share Target Picker</button>
@@ -73,7 +74,7 @@
         await liff.sendMessages([
           {
             "type": "text",
-            "text": "Bas test 123 comment"
+            "text": document.getElementById("comment").value
           }
         ])
         alert("Message Sent")
