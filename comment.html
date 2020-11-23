@@ -68,7 +68,12 @@
         getEnvironment()
         const queryString = decodeURIComponent(window.location.search);
         const params = new URLSearchParams(queryString);
-        document.getElementById("action").append("คุณต้องการ " + params.get("action") + " ใช่หรือไม่");
+        if(params.get("action") === "อนุมัติ"){
+            document.getElementById("action").append("คุณต้องการ <div sytle='color: #57B8C5'>" +  params.get("action") + "</> ใช่หรือไม่");
+        }else{
+            document.getElementById("action").append("คุณต้องการ <div sytle='color: #FF6464FF'>" +  params.get("action") + "</> ใช่หรือไม่");
+        }
+        
         document.getElementById("DocNo").append(params.get("DocNo"));
         document.getElementById("Requester").append(params.get("Requester"));
         document.getElementById("LeaveType").append(params.get("LeaveType"));
