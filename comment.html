@@ -42,30 +42,38 @@
 </center>
 <script>
 
-async function sendMsg() {
-    if(liff.getContext().type !== "none" && liff.getContext().type !== "external"){
-        await liff.sendMessages([
-            {
-            "type": "text",
-            "text": "bas"
-            //"text": "***" + params.get("DocNo") + "^Comment" + document.getElementById("comment").value
-            }
-        ])
-        alert("Message Sent")
+    async function sendMsg() {
+        if(liff.getContext().type !== "none" && liff.getContext().type !== "external"){
+            await liff.sendMessages([
+                {
+                "type": "text",
+                "text": "bas"
+                //"text": "***" + params.get("DocNo") + "^Comment" + document.getElementById("comment").value
+                }
+            ])
+            alert("Message Sent")
+        }
     }
-}
-async function main() {
-    await liff.init({ liffId: "1654891183-KD94xEqE" })
-    const queryString = decodeURIComponent(window.location.search);
-    const params = new URLSearchParams(queryString);
-	document.getElementById("action").append("คุณต้องการ " + params.get("action") + " ใช่หรือไม่");
-    document.getElementById("DocNo").append(params.get("DocNo"));
-    document.getElementById("Requester").append(params.get("Requester"));
-    document.getElementById("LeaveType").append(params.get("LeaveType"));
-    document.getElementById("DateLeave").append(params.get("DateLeave"));
-    document.getElementById("TotalLeave").append(params.get("TotalLeave"));
-    document.getElementById("Reason").append(params.get("Reason"));
-  
+
+    function getEnvironment() {
+        
+        if(!liff.isInClient()){
+            document.getElementById("btnMsg").style.display = "none";
+        }
+    } 
+    async function main() {
+        await liff.init({ liffId: "1654891183-KD94xEqE" })
+        getEnvironment()
+        const queryString = decodeURIComponent(window.location.search);
+        const params = new URLSearchParams(queryString);
+        document.getElementById("action").append("คุณต้องการ " + params.get("action") + " ใช่หรือไม่");
+        document.getElementById("DocNo").append(params.get("DocNo"));
+        document.getElementById("Requester").append(params.get("Requester"));
+        document.getElementById("LeaveType").append(params.get("LeaveType"));
+        document.getElementById("DateLeave").append(params.get("DateLeave"));
+        document.getElementById("TotalLeave").append(params.get("TotalLeave"));
+        document.getElementById("Reason").append(params.get("Reason"));
+    
     }
     main()
 
