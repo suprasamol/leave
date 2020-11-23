@@ -11,7 +11,7 @@
 <center>
 <table>
     <tr>
-		<td colspan="2"><b><p id="action"></p></b></td>
+		<td colspan="2"><b>คุณต้องการ <p id="action"></p> ใช่หรือไม่</b></td>
     </tr>
     <tr>
         <td colspan="2"><p id="DocNo"><b>เลขที่เอกสาร:</b> </p></td>
@@ -68,10 +68,11 @@
         getEnvironment()
         const queryString = decodeURIComponent(window.location.search);
         const params = new URLSearchParams(queryString);
-        if(params.get("action") === "อนุมัติ"){
-            document.getElementById("action").append("คุณต้องการ <div sytle='color: #57B8C5'>" +  params.get("action") + "</> ใช่หรือไม่");
+        document.getElementById("action").append(params.get("action"));
+        if(params.get("action") === "อนุมัติ"){ 
+            document.getElementById("action").style.cssText = "color:#57B8C5";
         }else{
-            document.getElementById("action").append("คุณต้องการ <div sytle='color: #FF6464FF'>" +  params.get("action") + "</> ใช่หรือไม่");
+            document.getElementById("action").style.cssText = "color:#FF6464FF";
         }
         
         document.getElementById("DocNo").append(params.get("DocNo"));
