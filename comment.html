@@ -48,13 +48,8 @@
         if(liff.getContext().type !== "none" && liff.getContext().type !== "external"){
             await liff.sendMessages([
                 {
-                "type": "text",
-                "text": "bas"
-                //"text": "***" + params.get("DocNo") + "^Comment" + document.getElementById("comment").value
-                },
-                {
                     "type": "text",
-                    "text": "***" + params.get("DocNo") + "^" + params.get("action") + "^"+ document.getElementById("comment").value
+                    "text": "*****" + params.get("DocNo") + "^" + params.get("action") + "^"+ document.getElementById("comment").value + "*****"
                 }
             ])
             alert("Message Sent")
