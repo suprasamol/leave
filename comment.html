@@ -7,44 +7,47 @@
 </head>
 <body>
 <script src="https://static.line-scdn.net/liff/edge/versions/2.5.0/sdk.js"></script>
+<center>
 <table>
     <tr>
-        <td><p id="DocNo"><b>เลขที่เอกสาร:</b> </p></td>
+		<td colspan="2"><b><p id="action"></p></b></td>
     </tr>
     <tr>
-        <td><p id="Requester"><b>ผู้ขอลา:</b> </p></td>
+        <td colspan="2"><p id="DocNo"><b>เลขที่เอกสาร:</b> </p></td>
     </tr>
     <tr>
-        <td><p id="LeaveType"><b>ประเภทการลา:</b> </p></td>
+        <td colspan="2"><p id="Requester"><b>ผู้ขอลา:</b> </p></td>
     </tr>
     <tr>
-        <td><p id="DateLeave"><b>วันลา:</b> </p></td>
+        <td colspan="2"><p id="LeaveType"><b>ประเภทการลา:</b> </p></td>
     </tr>
     <tr>
-        <td><p id="TotalLeave"><b>รวมวันลาทั้งหมด:</b> </p></td>
+        <td colspan="2"><p id="DateLeave"><b>วันลา:</b> </p></td>
+    </tr>
+    <tr>
+        <td colspan="2"><p id="TotalLeave"><b>รวมวันลาทั้งหมด:</b> </p></td>
     </tr>
     <tr>
         <td><p id="Reason"><b>เหตุผลการลา:</b> </p></td>
+		<td><input id="comment"></td>
     </tr>
-    <tr>
-        <td><input id="comment"></td>
-    </tr>
-    <button id="btnMsg" onclick="sendMsg()">Send Comment</button>
+   
+	<tr><td colspan="2"><center><button id="btnMsg" onclick="sendMsg()">Send Comment</button></center></td></tr>
+   
 </table>
-
+</center>
 <script>
 async function main() {
     await liff.init({ liffId: "1654891183-KD94xEqE" })
     const queryString = decodeURIComponent(window.location.search);
     const params = new URLSearchParams(queryString);
-
+	document.getElementById("action").append("คุณต้องการ" + params.get("action") + "ใช่หรือไม่");
     document.getElementById("DocNo").append(params.get("DocNo"));
     document.getElementById("Requester").append(params.get("Requester"));
     document.getElementById("LeaveType").append(params.get("LeaveType"));
     document.getElementById("DateLeave").append(params.get("DateLeave"));
     document.getElementById("TotalLeave").append(params.get("TotalLeave"));
-    document.getElementById("Reason").append(params.get("Reason"));
-
+  
     }
     main()
 
