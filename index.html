@@ -75,14 +75,13 @@
     }
 
     async function getUserProfile() {
-      var vConsole = new VConsole()
-      console.log("Test 111")
+      // var vConsole = new VConsole()
+      // console.log("Test 111")
       const profile = await liff.getUserProfile()
       document.getElementById("pictureUrl").src = profile.profile
       document.getElementById("userId").append(profile.userId)
       document.getElementById("statusMessage").append(profile.statusMessage)
       document.getElementById("displayName").append(profile.displayName)
-      console.log(profile)
     }
 
     function getEnvironment() {
