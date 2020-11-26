@@ -89,8 +89,7 @@
         document.getElementById("LeaveType").append(params.get("LeaveType"));
         document.getElementById("DateLeave").append(params.get("DateLeave"));
 
-        alert(params.get("TimeRange"));
-        if(params.get("TimeRange") === "1วัน"){
+        if(params.get("TotalLeave") === "1วัน"){
             document.getElementById("rowTimeRange").style.display = "none";
         }
         document.getElementById("TotalLeave").append(params.get("TotalLeave"));
