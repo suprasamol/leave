@@ -91,6 +91,8 @@
 
         if(params.get("TotalLeave") === "1วัน"){
             document.getElementById("rowTimeRange").style.display = "none";
+        }else{
+            document.getElementById("TimeRange").append(params.get("TimeRange"));
         }
         document.getElementById("TotalLeave").append(params.get("TotalLeave"));
         document.getElementById("Reason").append(params.get("Reason"));
