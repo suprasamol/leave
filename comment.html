@@ -25,6 +25,9 @@
     <tr>
         <td colspan="2"><p id="DateLeave"><b>วันลา:</b> </p></td>
     </tr>
+    <tr id="rowTimeRange">
+        <td colspan="2"><p id="TimeRange"><b>เวลา:</b> </p></td>
+    </tr>
     <tr>
         <td colspan="2"><p id="TotalLeave"><b>รวมวันลาทั้งหมด:</b> </p></td>
     </tr>
@@ -85,6 +88,10 @@
         document.getElementById("Requester").append(params.get("Requester"));
         document.getElementById("LeaveType").append(params.get("LeaveType"));
         document.getElementById("DateLeave").append(params.get("DateLeave"));
+
+        if(params.get("TimeRange") === "1วัน"){
+            document.getElementById("rowTimeRange").style.display = "none";
+        }
         document.getElementById("TotalLeave").append(params.get("TotalLeave"));
         document.getElementById("Reason").append(params.get("Reason"));
     
